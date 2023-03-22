@@ -1,0 +1,6 @@
+<!--pages/testDemo10/index.wxml-->
+<text>pages/testDemo10/index.wxml</text>
+<view>二维码识别</view>
+<button class="Scan" type="primary" bindtap="GetInfo">扫码识别</button>
+<view class="message">获取到的信息为:</view>
+<textarea class="GetText" maxlength="-1" value="{{info}}"></textarea>

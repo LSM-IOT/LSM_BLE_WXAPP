@@ -1,0 +1,5 @@
+<!--pages/testDemo9/index.wxml-->
+<text>pages/testDemo9/index.wxml</text>
+<view>地图测试</view>
+<!-- <input placeholder="请选择地址..." value="{{mapName}}"></input>
+<button bindtap="moveToLocation">地图选点</button> -->

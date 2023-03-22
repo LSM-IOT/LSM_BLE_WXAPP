@@ -1,0 +1,2 @@
+<!--pages/testDemo8/index.wxml-->
+<button bindtap="gotoPage">页面跳转</button>

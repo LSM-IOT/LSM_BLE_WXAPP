@@ -1,0 +1,46 @@
+<!--pages/testDemo4/index.wxml-->
+<view>蓝牙测试</view>
+<!-- <view>匹配到的蓝牙{{consoleLog}}</view> -->
+<!-- <view>devname:{{inputValue}}</view>
+<view>uuid:{{uuid}}</view>
+<view>rssi:{{rssi}}</view>
+<view>mac:{{deviceId}}</view>
+<view>devices:{{devices}}</view> -->
+
+<view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
+<scroll-view class="device_list" scroll-y scroll-with-animation>
+<!-- 往connetBlue事件函数里传入参数，需要定义若个  data-  数据 -->
+<!--例如{deviceId: "8C:F6:81:D2:BA:43", name: "RFstar_BA43"} -->
+  <view wx:for="{{devices}}" wx:key="*this" 
+  data-device-id="{{item.deviceId}}"
+  data-name="{{item.name || item.localName}}"
+  bindtap="connetBlue" >
+    <view style="font-size: 16px; color: #333;">{{item.name}}</view>
+    <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm </view>
+    <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+  </view>
+</scroll-view>
+
+<view wx:for="{{chs}}" wx:key="index" style="font-size: 12px; margin-top: 10px;">
+    <view>特性UUID: {{item.uuid}}</view>
+    <view>特性值: {{item.value}}</view>
+</view>
+
+<!-- <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
+<scroll-view class="device_list" scroll-y scroll-with-animation>
+  <view wx:for="{{devices}}" wx:key="index"
+   data-device-id="{{item.deviceId}}"
+   data-name="{{item.name || item.localName}}"
+   bindtap="createBLEConnection" 
+   class="device_item"
+   hover-class="device_item_hover">
+    <view style="font-size: 16px; color: #333;">{{item.name}}</view>
+    <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+    <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+    <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view>
+  </view>
+</scroll-view> -->
+
+
+<button bindtap="initBlue">开始</button>
+<!-- <button bindtap="initBlue">结束</button> -->

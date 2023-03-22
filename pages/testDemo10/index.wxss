@@ -1,0 +1,17 @@
+/* pages/testDemo10/index.wxss */
+.Scan{
+  margin-top: 80px;
+  text-align: center;
+}
+
+.GetText{
+  margin-left: 5px;
+  margin-top: 20px;
+  width: 403px;
+  height: 500px;
+  background-color: lightgray;
+}
+.message{
+  height: 5px;
+  margin-top: 5px;
+}

@@ -1,0 +1,14 @@
+/* pages/testDemo1/index.wxss */
+input{
+  border: 1px solid black;
+  height: 20px;
+  width: 200px;
+}
+
+.box{
+  display: flex;
+}
+
+.list_del_but text{
+  display: flex;
+}

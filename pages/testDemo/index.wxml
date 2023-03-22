@@ -1,0 +1,65 @@
+<!--pages/testDemo/index.wxml-->
+<text>pages/testDemo/index.wxml</text>
+
+<view>{{1+1}}</view>
+<view>{{10>20?true:false}}</view>
+<!-- 在.js的data注册 一个myname 这里就可以直接得到myname的值 -->
+<view>{{myname}}</view>
+<view>{{myid}}</view>
+<!-- 修改标签属性值-->
+<view id="myid-{{myid[0]}}">myid[0]={{myid[0]}}</view>
+<view id="myid-{{myid[1]}}">myid[0]={{myid[1]}}</view>
+<view id="myid-{{myid[2]}}">myid[0]={{myid[2]}}</view>
+
+<!-- 列表渲染   index-索引  item-数组值-->
+<view>----------列表渲染------------</view>
+<view wx:for="{{mylist}}">
+  {{index}}:{{item}}
+</view>
+<view>----------1------------</view>
+<view wx:for="{{[1,2,3,4,5]}}">
+  {{index}}: {{item}}
+</view>
+<view>----------2------------</view>
+<view wx:for="{{mylist}}" wx:for-index="i" wx:for-item="j">
+  {{i}}:{{j}}
+</view>
+<view>----------3------------</view>
+<block wx:for="{{[1, 2, 3]}}">
+  <view> {{index}}:{{item}} </view>
+</block>
+<view>----------4------------</view>
+<view wx:for="{{[1, 2, 3]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>
+<view>----------条件渲染------------</view>
+<!--条件渲染 -->
+<view wx:if="{{1 > 5}}"> 1 </view>
+<view wx:elif="{{1 > 2}}"> 2 </view>
+<view wx:else> 3 </view>
+<view>----------hidden------------</view>
+<!-- 组件始终会被渲染，只是简单的控制显示与隐藏 -->
+<view hidden="{{true}}">隐藏</view>
+<view hidden="{{false}}">不隐藏</view>
+<view hidden="{{idHidden}}">不隐藏</view>
+
+<!-- 事件绑定  例如点击按钮将修改 .js中的myname -->
+<button type="primary" bindtap="reviseMyname" >button1</button>
+
+<!-- catchtap 会阻止事件冒泡  即  
+点击outer view   只会调用 handleTap1
+点击middle view  只会调用 handleTap2
+点击inner view   会调用handleTap3 和handleTap2,由于catchtap的存在，不能调用handleTap1-->
+<view id="outer" bindtap="handleTap1">
+  outer view
+  <view id="middle" catchtap="handleTap2">
+    middle view
+    <view id="inner" bindtap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>

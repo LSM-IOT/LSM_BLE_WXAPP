@@ -1,0 +1,8 @@
+<!--pages/testDemo2/index.wxml-->
+<text>pages/testDemo2/index.wxml</text>
+<view>wxs模块测试</view>
+<!-- 调用tools.wxs中的方法 -->
+<wxs src="./tools.wxs" module="tools" />
+<view> {{tools.msg}} </view>
+<view> {{tools.Bar(tools.FOO)}} </view>
+<view> {{tools.Mydate(tools.timestamp)}} </view>

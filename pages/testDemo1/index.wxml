@@ -1,0 +1,15 @@
+<!--pages/testDemo1/index.wxml-->
+<text>pages/testDemo1/index.wxml</text>
+<view>-------------测试input----------</view>
+<!-- 将输入框和按钮摆放在一行 -->
+<view class="box">
+  <input type="text" bindinput="handleInput" value="{{mydata}}"/>
+  <button size="mini" bindtap="handleAdd">add</button>
+  <button size="mini" bindtap="handleDel">del</button>
+</view>
+
+<view wx:for="{{mydatalist}}" wx:key="index" class="list_del_but">
+  <text>{{item}}</text>
+  <button size="mini" bindtap="handleDel" data-myid="{{index}}">delete</button>
+</view>
+

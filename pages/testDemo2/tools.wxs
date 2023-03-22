@@ -1,0 +1,21 @@
+
+var foo = "'hello world' from tools.wxs";
+var bar = function (d) {
+  return d;
+}
+
+var mydate=function(timestamp){
+  console.log(t)
+  var t = getDate(timestamp)
+  return t.getFullYear()+"-"+(t.getMonth()+1)+"-"+t.getDate()+"  "+t.getHours()+":"+t.getMinutes()+":"+t.getSeconds();
+
+}
+// 每个 wxs 模块均有一个内置的 module 对象
+// 通过该属性，可以对外共享本模块的私有变量与函数
+module.exports = {
+  FOO: foo,
+  Bar: bar,
+  Mydate:mydate
+};
+module.exports.msg = "some msg";
+module.exports.timestamp = 1500000000000;
